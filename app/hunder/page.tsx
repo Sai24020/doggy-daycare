@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import DogCard from "@/app/components/DogCard";
 import { Dog } from "@/app/types/dog";
+import Link from "next/link";
 
 export default function HundarPage() {
   const [dogs, setDogs] = useState<Dog[]>([]);
@@ -48,7 +49,8 @@ export default function HundarPage() {
 
   return (
     <div className="p-6 bg-yellow-200 min-h-screen">
-      <h1 className="text-3xl font-bold text-center">OUR DOGS</h1>
+     <Link href="/">Start</Link>
+      <h1 className="text-3xl font-bold text-center">OUR DOGS{}</h1>
       <div className="flex justify-center gap-4 my-4">
         <input
           type="text"
