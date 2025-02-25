@@ -16,8 +16,8 @@ export default function DogProfile({ params }: { params: { id: string } }) {
       const foundDog = data.find((d: Dog) => d.id === Number(params.id));
 
       if (!foundDog) {
-        router.push("/404");
-      } else {
+        router.push("/404  - page not found");
+      } else { 
         setDog(foundDog);
         setIsPresent(foundDog.present);
       }

@@ -52,7 +52,7 @@ export default function DogProfile({ dogId, allDogs }: DogProfileProps) {
       <div className="mt-6 flex justify-between">
         {prevDog ? (
           <button
-            onClick={() => router.push(`/hundar/${prevDog.id}`)}
+            onClick={() => router.push(`/hunder/${prevDog.id}`)}
             className="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400"
           >
             ← {prevDog.name}
@@ -62,7 +62,7 @@ export default function DogProfile({ dogId, allDogs }: DogProfileProps) {
         )}
         {nextDog ? (
           <button
-            onClick={() => router.push(`/hundar/${nextDog.id}`)}
+            onClick={() => router.push(`/hunder/${nextDog.id}`)}
             className="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400"
           >
             {nextDog.name} →

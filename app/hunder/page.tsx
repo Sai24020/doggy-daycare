@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import DogCard from "@/app/components/DogCard";
+import DogProfile from "@/app/components/DogProfile";
 import { Dog } from "@/app/types/dog";
 import Link from "next/link";
 

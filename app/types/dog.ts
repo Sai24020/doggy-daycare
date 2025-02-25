@@ -15,6 +15,6 @@ export interface Dog {
     };
     img: string;
   }
-export interface DogCardProps {
+export interface Props {
   dog: Dog;
 }

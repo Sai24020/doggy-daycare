@@ -1,9 +1,5 @@
 import Link from "next/link";
-import { Dog } from "../types/dog";
-
-interface Props {
-  dog: Dog;
-}
+import { Props } from "../types/dog";
 
 export default function DogCard({ dog }: Props) {
   return (
@@ -19,7 +15,8 @@ export default function DogCard({ dog }: Props) {
       <p className={dog.present ? "text-green-500" : "text-red-500"}>
         {dog.present ? "✅ Present" : "❌ Absent"}
       </p>
-      <Link href={dog.id ? `/hundar/${dog.id}` : '#'}>
+      
+      <Link href={dog.id ? `/hunder/${dog.id}` : '#'}>
         <button className="bg-blue-500 text-white px-4 py-2 rounded-md mt-3 w-full">
           View Profile
         </button>
