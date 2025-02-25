@@ -36,10 +36,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## I Terminal
-git clone https://github.com/Sai24020/doggy-daycare.git
 
- npx create-next-app@latest .
- npm install tailwindcss @tailwindcss/postcss postcss
- git commit -m "Initial commit med projektfiler för hunddagis"
- git push origin main
+ - git clone https://github.com/Sai24020/doggy-daycare.git
+ - npx create-next-app@latest .
+ - npm install tailwindcss @tailwindcss/postcss postcss
+ - git commit -m "Initial commit med projektfiler för hunddagis"
+ -  git push origin main
+ 
+ 
+
  
