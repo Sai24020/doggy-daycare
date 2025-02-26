@@ -29,7 +29,7 @@ const dogReducer = (state: DogState, action: DogAction): DogState => {
 
 // 3. skapa context
 export const DogsContext = createContext<{state: DogState; dispatch: Dispatch<DogAction>} | undefined> (
-    undefined
+    undefined   //kanshe null
 );
 
 // 4. provider-komponent
