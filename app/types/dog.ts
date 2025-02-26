@@ -2,6 +2,7 @@ import DogCard from "../components/DogCard";
 
 export interface Dog {
     id: number;
+    chipNumber: string;
     name: string;
     breed: string;
     age: number;

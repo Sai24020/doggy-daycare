@@ -7,22 +7,24 @@ import { Dog } from "../types/dog";
 interface DogProfileProps {
   dogId: number;
   allDogs: Dog[];
+  chipNumber: string;
+
 }
 
-export default function DogProfile({ dogId, allDogs }: DogProfileProps) {
+export default function DogProfile({ chipNumber, allDogs }: DogProfileProps) {
   const router = useRouter();
   const [dog, setDog] = useState<Dog | null>(null);
   const [isPresent, setIsPresent] = useState<boolean>(false);
 
   useEffect(() => {
-    const foundDog = allDogs.find((d) => d.id === dogId);
+    const foundDog = allDogs.find((d) => d.chipNumber === chipNumber);
     if (!foundDog) {
-      router.push("/404");
+      router.push("/404  - page not found");
       return;
     }
     setDog(foundDog);
     setIsPresent(foundDog.present);
-  }, [dogId, allDogs, router]);
+  }, [chipNumber, allDogs, router]);
 
   if (!dog) return <p className="text-center text-xl">Loading...</p>;
 

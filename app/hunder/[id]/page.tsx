@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Dog } from "@/app/types/dog";
 
-export default function DogProfile({ params }: { params: { id: string } }) {
+export default function DogProfile({ params }: { params: { chipNumber: string } }) {
   const [dog, setDog] = useState<Dog | null>(null);
   const [isPresent, setIsPresent] = useState(false);
   const router = useRouter();
@@ -13,7 +13,8 @@ export default function DogProfile({ params }: { params: { id: string } }) {
     const fetchDog = async () => {
       const response = await fetch("https://majazocom.github.io/Data/dogs.json");
       const data = await response.json();
-      const foundDog = data.find((d: Dog) => d.id === Number(params.id));
+      const foundDog = data.find((d: Dog) => d.chipNumber === String(params.chipNumber));
+console.log(params.chipNumber);
 
       if (!foundDog) {
         router.push("/404  - page not found");
@@ -23,7 +24,7 @@ export default function DogProfile({ params }: { params: { id: string } }) {
       }
     };
     fetchDog();
-  }, [params.id]);
+  }, [params.chipNumber]);
 
   if (!dog) return <p>Loading...</p>;
 

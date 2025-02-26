@@ -36,7 +36,7 @@ export default function HundarPage() {
   const filterDogs = (searchTerm: string, filterValue: string) => {
     let filtered = dogs.filter((dog) =>
       dog.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      dog.breed.toLowerCase().includes(searchTerm.toLowerCase())
+      dog.breed.toLowerCase().includes(searchTerm.toLowerCase())  
     );
 
     if (filterValue === "Present") {
@@ -55,20 +55,20 @@ export default function HundarPage() {
       <div className="flex justify-center gap-4 my-4">
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Search with name eller breed..."
           value={search}
           onChange={handleSearch}
           className="border p-2 rounded"
         />
         <select onChange={(e) => handleFilter(e.target.value)} className="border p-2 rounded">
-          <option>All DOGS</option>
-          <option>Present DOGS</option>
-          <option>Absent DOGS</option>
+          <option  value="All">All DOGS</option>
+          <option value="Present">Present DOGS</option>
+          <option  value="Absent">Absent DOGS</option>
         </select>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredDogs.map((dog) => (
-          <DogCard key={dog.id} dog={dog} />
+          <DogCard key={dog.chipNumber} dog={dog} />
         ))}
       </div>
     </div>
