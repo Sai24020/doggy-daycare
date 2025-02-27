@@ -35,7 +35,7 @@ export default function Home() {
           🐶 View Dogs
         </Link>
 
-        <Link href="/present"className="bg-blue-300 font-bold m-4rem px-6 py-3 rounded-lg hover:bg-blue-100 transition">
+        <Link href="/dogs"className="bg-blue-300 font-bold m-4rem px-6 py-3 rounded-lg hover:bg-blue-100 transition">
         Närvaro🐶List
         </Link>
 

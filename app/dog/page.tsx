@@ -1,12 +1,15 @@
-"use client";
-
+"use client";// Gör sidan till en klientkomponent eftersom useRouter används
+import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const API_URL = "https://majazocom.github.io/Data/dogs.json";
 
 export default function DogsPage() {
-  const [dogs, setDogs] = useState<any[]>([]);
+  const { id } = useParams(); // Hämta produkt-ID från URL
+  const router = useRouter(); 
+  const [dogs, setDogs] = useState<any[]>([]);//  eller = useState<Dogs | null>(null);
   const [presentDogs, setPresentDogs] = useState<any[]>([]);
   const [showPresentDogs, setShowPresentDogs] = useState(false); // Toggle for present dogs list
 
@@ -22,15 +25,18 @@ export default function DogsPage() {
     if (storedPresentDogs) {
       setPresentDogs(JSON.parse(storedPresentDogs));
     }
-  }, []);
+  }, [id]);
 
   const fetchDogs = async () => {
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch(`https://majazocom.github.io/Data/dogs.json/dog/${id}`);
+      const data = await response.json();
+      setDogs(data);
+
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      const data = await response.json();
+      //const data = await response.json();
       const dogsWithPresence = data.map((dog: any) => ({ ...dog, isPresent: false }));
       setDogs(dogsWithPresence);
       localStorage.setItem("dogs", JSON.stringify(dogsWithPresence));
@@ -68,6 +74,7 @@ export default function DogsPage() {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen text-center">
+
       <h1 className="text-3xl font-bold mb-6">🐶 Dog List</h1>
       
       <div className="mt-6">
@@ -159,7 +166,10 @@ export default function DogsPage() {
         <p className="text-gray-500">No dogs available. Click "Fetch Dogs" to load data.</p>
       )}
 
-
+      {/* Tillbaka-knapp */}
+      <button onClick={() => router.back()} className="mb-4 p-2 bg-gray-300 rounded">
+        ⬅ Tillbaka
+      </button>
 
     </div>
   );
