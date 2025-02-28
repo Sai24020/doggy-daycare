@@ -1,5 +1,3 @@
-import DogCard from "../components/DogCard";
-
 export interface Dog {
     id: number;
     chipNumber: string;

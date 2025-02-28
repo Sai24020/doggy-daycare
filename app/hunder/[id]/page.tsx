@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Dog } from "@/app/types/dog";
 
-export default function DogProfile({ params }: { params: { chipNumber: string } }) {
+export default function DogProfile({ params }: { params: { chipNumber: "string" } }) {
   const [dog, setDog] = useState<Dog | null>(null);
   const [isPresent, setIsPresent] = useState(false);
   const router = useRouter();
